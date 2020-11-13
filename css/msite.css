@@ -1,0 +1,124 @@
+﻿.paragraph-title {
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: #ed8323;
+}
+
+.list-sorting {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.booking-sort-title-bar {
+    font-size: 10px;
+    font-size: 14px;
+    color: #737373;
+}
+
+.booking-sort-title-bar-selected {
+    font-size: 10px;
+    font-size: 14px;
+    color: #737373;
+}
+
+.booking-item {
+    padding: 0px;
+}
+
+.booking-item-rating {
+    padding: 15px;
+}
+
+/*.header-top {
+    background: rgba(0, 0, 0, 0.13);
+}*/
+
+/*#main-header {
+    position: absolute;
+    top: 0px;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.twitter-typeahead {
+    width: 100%;
+}
+.twitter-typeahead .tt-query,
+.twitter-typeahead .tt-hint {
+	margin-bottom: 0;
+}
+.tt-menu {
+	min-width: 160px;
+	margin-top: 2px;
+	padding: 5px 0;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	background-clip: padding-box;
+
+}
+.tt-hint {
+	display: block;
+	width: 100%;
+	height: 56px;
+	padding: 14px 16px;
+	font-size: 18px;
+	line-height: 25px;
+	color: #999;
+	vertical-align: middle;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.tt-dropdown-menu {
+	min-width: 160px;
+    width: 100%;
+	margin-top: 2px;
+	padding: 5px 0;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	background-clip: padding-box;
+}
+.tt-suggestion {
+	display: block;
+	padding: 3px 20px;
+}
+.tt-suggestion p {
+	margin: 0;
+}
+.tt-suggestion.tt-cursor,
+.tt-suggestion:hover {
+	color: #fff;
+	background-color: #428bca;
+}
+.tt-suggestion.tt-is-under-cursor a {
+	color: #fff;
+}
+.twitter-typeahead > .form-control{
+  width: inherit !important;
+}
+.input-group .form-control.tt-query:not(:first-child):not(:last-child) {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}*/

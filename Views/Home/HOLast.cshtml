@@ -1,0 +1,157 @@
+﻿
+<div class="gap"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <i class="fa fa-check round box-icon-large box-icon-center box-icon-success mb30"></i>
+            <h4 class="text-center"><strong>@Prog.Terminal.User.FullName</strong>, your booking has been submitted (Current State: <strong>@Prog.Terminal.BookingInfo.BookingStatus</strong>)</h4>
+            <h4 class="text-center mb30">Booking details have been sent to <strong>@Prog.Terminal.User.Email</strong> and <strong>@Prog.Terminal.BookingInfo.MEmail</strong></h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="booking-item-payment">
+                        <header class="clearfix">
+                            <a class="booking-item-payment-img" href="#">
+                                <img src="http://photos.hotelbeds.com/giata/@Prog.Terminal.FinalBooking.SelectedHotel.DefaultImage" onerror="this.src='../img/broken.jpg'" alt="Image Alternative text" title="hotel 1" />
+                            </a>
+                            <h5 class="booking-item-payment-title"><a href="#">@Prog.Terminal.BookingInfo.HotelName</a></h5>
+                            <ul class="icon-group booking-item-rating-stars">
+                                @for (int i = 0; i < @Prog.Terminal.FinalBooking.SelectedHotel.Stars; i++)
+                                {
+                                    <li>
+                                        <i class="fa fa-star"></i>
+                                    </li>
+                                }
+                                @for (int j = @Prog.Terminal.FinalBooking.SelectedHotel.Stars; j < 5; j++)
+                                {
+                                    <li>
+                                        <i class="fa fa-star-o"></i>
+                                    </li>
+                                }
+                            </ul>
+                        </header>
+                        <ul class="booking-item-payment-details">
+                            <li>
+                                <h3><strong>@Prog.Terminal.FinalBooking.MainCustomerInfo.FullName</strong></h3>
+                                <h5>Booking for @Prog.Terminal.FinalBooking.TotalNights nights</h5>
+                                <div class="booking-item-payment-date">
+                                    <p class="booking-item-payment-date-day">@Prog.Terminal.FinalBooking.FormattedCheckIn2</p>
+                                    <p class="booking-item-payment-date-weekday">@Prog.Terminal.FinalBooking.CheckIn.DayOfWeek</p>
+                                </div><i class="fa fa-arrow-right booking-item-payment-date-separator"></i>
+                                <div class="booking-item-payment-date">
+                                    <p class="booking-item-payment-date-day">@Prog.Terminal.FinalBooking.FormattedCheckOut2</p>
+                                    <p class="booking-item-payment-date-weekday">@Prog.Terminal.FinalBooking.CheckOut.DayOfWeek</p>
+                                </div>
+                            </li>
+                            <li>
+                                <h5>Rooms</h5>
+                                @foreach (BookingRate bRate in Prog.Terminal.FinalBooking.SelectedRates)
+                                {
+                                    <p class="booking-item-payment-item-title">@bRate.Rate.Room.Name (@bRate.Count)</p>
+                                    <ul class="booking-item-payment-price">
+                                        <li>
+                                            <p class="booking-item-payment-price-title">@Prog.Terminal.FinalBooking.TotalNights Nights</p>
+                                            <p class="booking-item-payment-price-amount">
+                                                $@bRate.TotalPrice<small>/per day</small>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="booking-item-payment-price-title">Taxes</p>
+                                            <p class="booking-item-payment-price-amount">
+                                                $0<small>/per day</small>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                }
+                            </li>
+                        </ul>
+                        <p class="booking-item-payment-total">
+                            Total trip: <span>$@Prog.Terminal.FinalBooking.TotalPrice</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="radio">
+                                <label>
+                                    <input class="i-radio" type="radio" value="pReport" name="ratioOption" checked /> Report
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input class="i-radio" type="radio" value="pReportP" name="ratioOption" /> Report + Price
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input class="i-radio" type="radio" value="pReportPC" name="ratioOption" /> Report + Price + Commision
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" onclick="fwLink(10410502);">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <i class="fa fa-file-pdf-o box-icon-large box-icon-left box-icon-danger box-icon-to-danger box-icon-border-dashed animate-icon-tada round"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            @*<ul class="order-payment-list list mb30">
+                    <li>
+                        @foreach (Rate rate in Prog.SessionCache.CurrentUser.CurrentBooking.SelectedRates)
+                        {
+                            <div class="row">
+                                <div class="col-xs-9">
+                                    <h5><i class="fa fa-home"></i>@rate.Room.Name - @rate.BoardName</h5>
+                                    <p>
+                                        <small>@Prog.SessionCache.CurrentUser.CurrentBooking.CheckIn.ToLongDateString()</small>
+                                    </p>
+                                </div>
+                                <div class="col-xs-3">
+                                    <p class="text-right">
+                                        <span class="text-lg">$@rate.Net</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr />
+                        }
+                    </li>
+                </ul>*@
+            <h4 class="text-center">You might also need in @Prog.Terminal.FinalBooking.City</h4>
+            <ul class="list list-inline list-center">
+                <li>
+                    <a class="btn btn-primary" href="/"><i class="fa fa-building-o"></i> Hotels</a>
+                    <p class="text-center lh1em mt5">
+                        <small>398 offers<br /> from $139</small>
+                    </p>
+                </li>
+                <li>
+                    <a class="btn btn-primary" href="#"><i class="fa fa-home"></i> Rentlas</a>
+                    <p class="text-center lh1em mt5">
+                        <small>229 offers<br /> from $143</small>
+                    </p>
+                </li>
+                <li>
+                    <a class="btn btn-primary" href="#"><i class="fa fa-dashboard"></i> Cars</a>
+                    <p class="text-center lh1em mt5">
+                        <small>180 offers<br /> from $73</small>
+                    </p>
+                </li>
+                <li>
+                    <a class="btn btn-primary" href="#"><i class="fa fa-bolt"></i> Activities</a>
+                    <p class="text-center lh1em mt5">
+                        <small>274 offers<br /> from $131</small>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="gap"></div>
+</div>

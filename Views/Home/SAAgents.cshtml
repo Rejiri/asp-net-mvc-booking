@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_CPanel.cshtml";
+}
+
+<h4>Registered Agents</h4>
+<div class="gap" />
+<table class="table table-bordered table-striped table-booking-history">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Balance</th>
+            <th>Creation Date</th>
+            <th>Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Company company in Company.Companies)
+            {
+                <tr>
+                    <td class="booking-history-type">
+                        <i class="fa fa-user"></i>
+                    </td>
+                    <td><a href="#" onclick="fwLink(101101, @company.Id)">@company.Name</a></td>
+                    <td>@company.City</td>
+                    <td>@*AB: $@user.Company.ActualBalance   -   RB: $@user.Company.ReservedBalance*@</td>
+                    <td>@company.CreationDate.ToLongDateString()</td>
+                    <td class="text-center">
+                        @if (company.IsActive)
+                        {
+                            <i class="fa fa-check"></i>
+                        }
+                    </td>
+                    @*<td class="text-center">
+                            <a class="btn btn-default btn-sm" href="#">Cancel</a>
+                        </td>*@
+                </tr>
+            }
+        }
+    </tbody>
+</table>

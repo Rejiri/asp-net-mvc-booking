@@ -1,0 +1,897 @@
+﻿@{
+    BookingRate bRate = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    @Html.Partial("parCssFiles")
+</head>
+<body>
+    <div class="container">
+        <div>
+            <table border="0" cellpadding="0" cellspacing="0" class="text-center">
+                <colgroup>
+                    <col class="xl66" width="64" style="mso-width-source:userset;mso-width-alt:2340;
+ width:48pt">
+                    <col class="xl73" width="121" style="mso-width-source:userset;mso-width-alt:4425;
+ width:91pt">
+                    <col class="xl73" width="64" style="mso-width-source:userset;mso-width-alt:2340;
+ width:48pt">
+                    <col class="xl73" width="141" style="mso-width-source:userset;mso-width-alt:5156;
+ width:106pt">
+                    <col class="xl73" width="81" style="mso-width-source:userset;mso-width-alt:2962;
+ width:61pt">
+                    <col class="xl73" width="79" style="mso-width-source:userset;mso-width-alt:2889;
+ width:59pt">
+                    <col class="xl73" width="80" style="mso-width-source:userset;mso-width-alt:2925;
+ width:60pt">
+                    <col class="xl75" width="80" style="mso-width-source:userset;mso-width-alt:2925;
+ width:60pt">
+                    <col class="xl73" width="83" style="mso-width-source:userset;mso-width-alt:3035;
+ width:62pt">
+                    <col class="xl73" width="93" style="mso-width-source:userset;mso-width-alt:3401;
+ width:70pt">
+                    <col width="64" span="19" style="width:48pt">
+                </colgroup>
+                <tbody>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" width="64" style="height:15.0pt;width:48pt"></td>
+                        <td colspan="9" class="xl344" width="822" style="width:617pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td width="121" style="width:91pt" align="left" valign="top">
+                            <span style="mso-ignore:vglayout;
+  position:absolute;z-index:1;margin-left:31px;margin-top:4px;width:159px;
+  height:142px"><img width="159" height="142" src="../img/image002.png" v:shapes="Picture_x0020_1"></span><!--[endif]--><span style="mso-ignore:vglayout2">
+                                <table cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td height="20" class="xl73" width="121" style="height:15.0pt;width:91pt"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </span>
+                        </td>
+                        <td class="xl73" width="64" style="width:48pt"></td>
+                        <td class="xl73" width="141" style="width:106pt"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl73" width="121" style="width:91pt"></td>
+                        <td class="xl73" width="64" style="width:48pt"></td>
+                        <td class="xl73" width="141" style="width:106pt"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl73" width="121" style="width:91pt"></td>
+                        <td class="xl73" width="64" style="width:48pt"></td>
+                        <td class="xl73" width="141" style="width:106pt"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="71" style="mso-height-source:userset;height:53.25pt">
+                        <td height="71" class="xl66" style="height:53.25pt"></td>
+                        <td class="xl93" width="121" style="width:91pt"></td>
+                        <td class="xl93" width="64" style="width:48pt"></td>
+                        <td colspan="5" class="xl224" width="461" style="width:346pt">
+                            <span style="mso-spacerun:yes">&nbsp;</span>CONFIRMATION <span style="mso-spacerun:yes">@Prog.Terminal.FinalBooking.User.Company.Name</span>
+                        </td>
+                        <td class="xl93" width="83" style="width:62pt"></td>
+                        <td class="xl93" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="21" style="height:15.75pt">
+                        <td height="21" class="xl66" style="height:15.75pt"></td>
+                        <td class="xl70" width="121" style="width:91pt"></td>
+                        <td class="xl70" width="64" style="width:48pt"></td>
+                        <td class="xl70" width="141" style="width:106pt"></td>
+                        <td class="xl70" width="81" style="width:61pt"></td>
+                        <td colspan="2" class="xl70" width="159" style="width:119pt"></td>
+                        <td class="xl74" width="80" style="width:60pt"></td>
+                        <td class="xl70" width="83" style="width:62pt"></td>
+                        <td class="xl70" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="23" style="mso-height-source:userset;height:17.25pt">
+                        <td height="23" class="xl66" style="height:17.25pt"></td>
+                        <td class="xl76" width="121" style="width:91pt">Agent Name</td>
+                        <td colspan="2" class="xl375" width="205" style="border-right:1.0pt solid black;
+  width:154pt">
+                            @Prog.Terminal.FinalBooking.User.FullName
+                        </td>
+                        <td class="xl70" width="81" style="width:61pt"></td>
+                        <td class="xl70" width="79" style="width:59pt"></td>
+                        <td colspan="2" class="xl220" width="160" style="border-right:1.0pt solid black;
+  width:120pt">
+                            ALTI Travel Ref. No.:
+                        </td>
+                        <td colspan="2" class="xl375" width="176" style="border-right:1.0pt solid black;
+  border-left:none;width:132pt">
+                            @Guid.NewGuid()
+                        </td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="25" style="mso-height-source:userset;height:18.75pt">
+                        <td height="25" class="xl66" style="height:18.75pt"></td>
+                        <td class="xl76" width="121" style="width:91pt">Agent Ref./Vch.</td>
+                        <td colspan="2" class="xl375" width="205" style="border-right:1.0pt solid black;
+  width:154pt">
+                            agent/ref
+                        </td>
+                        <td class="xl70" width="81" style="width:61pt"></td>
+                        <td class="xl70" width="79" style="width:59pt"></td>
+                        <td colspan="2" class="xl220" width="160" style="border-right:1.0pt solid black;
+  width:120pt">
+                            Booking Date:
+                        </td>
+                        <td colspan="2" class="xl375" width="176" style="border-right:1.0pt solid black;
+  border-left:none;width:132pt">
+                            @Prog.Terminal.FinalBooking.CreationTime.ToShortDateString()
+                        </td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="23" style="height:17.25pt">
+                        <td height="23" class="xl66" style="height:17.25pt"></td>
+                        <td class="xl76" width="121" style="width:91pt"></td>
+                        <td class="xl89" width="64" style="width:48pt"></td>
+                        <td class="xl89" width="141" style="width:106pt"></td>
+                        <td class="xl70" width="81" style="width:61pt"></td>
+                        <td class="xl70" width="79" style="width:59pt"></td>
+                        <td colspan="2" class="xl115">&nbsp;</td>
+                        <td colspan="2" class="xl380" width="176" style="width:132pt">&nbsp;</td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="22" style="mso-height-source:userset;height:16.5pt">
+                        <td height="22" class="xl66" style="height:16.5pt"></td>
+                        <td class="xl72" width="121" style="width:91pt">Attn.<span style="mso-spacerun:yes">&nbsp;</span></td>
+                        <td colspan="2" class="xl345" width="205" style="border-right:1.0pt solid black;
+  width:154pt">
+                            @Prog.Terminal.FinalBooking.User.FullName
+                        </td>
+                        <td class="xl67" width="81" style="width:61pt">&nbsp;</td>
+                        <td class="xl68" width="79" style="width:59pt">&nbsp;</td>
+                        <td colspan="2" class="xl115" style="border-right:1.0pt solid black">
+                            Arrival
+                            Date:
+                        </td>
+                        <td colspan="2" class="xl370" width="176" style="border-right:1.0pt solid black;
+  border-left:none;width:132pt">
+                            @Prog.Terminal.FinalBooking.CheckIn.ToShortDateString()
+                        </td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="22" style="mso-height-source:userset;height:16.5pt">
+                        <td height="22" class="xl66" style="height:16.5pt"></td>
+                        <td class="xl72" width="121" style="width:91pt">From<span style="mso-spacerun:yes">&nbsp;</span></td>
+                        <td colspan="2" class="xl378" width="205" style="border-right:1.0pt solid black;
+  width:154pt">
+                            @Prog.Terminal.FinalBooking.User.Company.Name
+                        </td>
+                        <td class="xl67" width="81" style="width:61pt">&nbsp;</td>
+                        <td class="xl68" width="79" style="width:59pt">&nbsp;</td>
+                        <td colspan="2" class="xl67" width="160" style="border-right:1.0pt solid black;
+  width:120pt">
+                            Departure Date:
+                        </td>
+                        <td colspan="2" class="xl370" width="176" style="border-right:1.0pt solid black;
+  border-left:none;width:132pt">
+                            @Prog.Terminal.FinalBooking.CheckOut.ToShortDateString()
+                        </td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="23" style="height:17.25pt">
+                        <td height="23" class="xl66" style="height:17.25pt"></td>
+                        <td class="xl72" width="121" style="width:91pt">&nbsp;</td>
+                        <td class="xl79" width="64" style="width:48pt">&nbsp;</td>
+                        <td class="xl79" width="141" style="width:106pt">&nbsp;</td>
+                        <td class="xl67" width="81" style="width:61pt">&nbsp;</td>
+                        <td class="xl69" width="79" style="width:59pt">&nbsp;</td>
+                        <td colspan="2" class="xl384" width="160" style="width:120pt"></td>
+                        <td colspan="2" class="xl89" width="176" style="width:132pt"></td>
+                        <td></td>
+                        <td class="xl95"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr height="43" style="mso-height-source:userset;height:32.25pt">
+                        <td height="43" class="xl66" style="height:32.25pt"></td>
+                        <td class="xl72" width="121" style="width:91pt">Guest/Leading<span style="mso-spacerun:yes">&nbsp; </span>Name</td>
+                        <td colspan="4" class="xl345" width="365" style="border-right:1.0pt solid black;
+  width:274pt">
+                            @Prog.Terminal.FinalBooking.MainCustomerInfo.FullNameReversed
+                        </td>
+                        <td colspan="2" class="xl67" width="160" style="border-right:1.0pt solid black;
+  width:120pt">
+                            No. of Pax
+                        </td>
+                        <td colspan="2" class="xl345" width="176" style="border-right:1.0pt solid black;
+  border-left:none;width:132pt">
+                            @Prog.Terminal.FinalBooking.AdultsCount
+                        </td>
+                        <td></td>
+                        <td class="xl95"></td>
+                        <td colspan="17" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="21" style="height:15.75pt">
+                        <td height="21" class="xl66" style="height:15.75pt"></td>
+                        <td class="xl72" width="121" style="width:91pt">&nbsp;</td>
+                        <td class="xl79" width="64" style="width:48pt">&nbsp;</td>
+                        <td class="xl79" width="141" style="width:106pt">&nbsp;</td>
+                        <td class="xl67" width="81" style="width:61pt">&nbsp;</td>
+                        <td class="xl69" width="79" style="width:59pt">&nbsp;</td>
+                        <td class="xl67" width="80" style="width:60pt">&nbsp;</td>
+                        <td class="xl67" width="80" style="width:60pt">&nbsp;</td>
+                        <td class="xl79" width="83" style="width:62pt">&nbsp;</td>
+                        <td class="xl79" width="93" style="width:70pt">&nbsp;</td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="21" style="height:15.75pt">
+                        <td height="21" class="xl66" style="height:15.75pt"></td>
+                        <td class="xl69" width="121" style="width:91pt">Dear </td>
+                        <td colspan="2" class="xl94" width="205" style="width:154pt">@Prog.Terminal.FinalBooking.User.FullName<span style="mso-spacerun:yes">&nbsp;</span></td>
+                        <td class="xl67" width="81" style="width:61pt">&nbsp;</td>
+                        <td class="xl69" width="79" style="width:59pt">&nbsp;</td>
+                        <td class="xl67" width="80" style="width:60pt">&nbsp;</td>
+                        <td class="xl67" width="80" style="width:60pt">&nbsp;</td>
+                        <td class="xl79" width="83" style="width:62pt">&nbsp;</td>
+                        <td class="xl79" width="93" style="width:70pt">&nbsp;</td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="22" style="height:16.5pt">
+                        <td height="22" class="xl66" style="height:16.5pt"></td>
+                        <td class="xl72" width="121" style="width:91pt">&nbsp;</td>
+                        <td colspan="9" class="xl94" width="765" style="width:574pt"><font class="font10">@Prog.Terminal.User.Company.Name</font><font class="font9"> are glad to </font><font class="font14">Confirm</font><font class="font9"> the following requested services:</font></td>
+                        <td colspan="18" style="mso-ignore:colspan"></td>
+                    </tr>
+                    @{
+                        for (int i = 0; i < Prog.Terminal.FinalBooking.SelectedRates.Count; i++)
+                        {
+                            bRate = Prog.Terminal.FinalBooking.SelectedRates[i];
+                            <tr height="22" style="height:16.5pt">
+                                <td height="22" class="xl66" style="height:16.5pt"></td>
+                                <td class="xl98" align="left" width="121" style="width:91pt">Room @(i + 1)</td>
+                                <td class="xl97" width="64" style="width:48pt">&nbsp;</td>
+                                <td class="xl99" width="141" style="width:106pt">Guest/Leading<span style="mso-spacerun:yes">&nbsp; </span>Name</td>
+                                <td colspan="6" class="xl345" width="496" style="border-right:1.0pt solid black;
+  width:372pt">
+                                    @Prog.Terminal.FinalBooking.MainCustomerInfo.FullNameReversed
+                                </td>
+                                <td colspan="18" style="mso-ignore:colspan"></td>
+                                <td></td>
+                            </tr>
+                            <tr height="43" style="mso-height-source:userset;height:32.25pt">
+                                <td height="43" class="xl66" style="height:32.25pt"></td>
+                                <td class="xl102" width="121" style="width:91pt">Accommodation/ Hotel NAME</td>
+                                <td colspan="5" class="xl372" width="445" style="border-right:1.0pt solid black;
+  width:334pt">
+                                    @bRate.Rate.Room.Hotel.Name
+                                </td>
+                                <td class="xl69" width="80" style="width:60pt">HTL/SUP Ref</td>
+                                <td colspan="2" class="xl359" width="176" style="border-right:1.0pt solid black;
+  width:132pt">
+                                    "onlinebookingCON#"
+                                </td>
+                                <td></td>
+                                <td class="xl100"></td>
+                                <td colspan="17" style="mso-ignore:colspan"></td>
+                            </tr>
+                            <tr height="43" style="mso-height-source:userset;height:32.25pt">
+                                <td height="43" class="xl66" style="height:32.25pt"></td>
+                                <td class="xl77" width="121" style="width:91pt">ROOM TYPE</td>
+                                <td colspan="2" class="xl361" width="205" style="border-right:1.0pt solid black;
+  border-left:none;width:154pt">
+                                    @bRate.Rate.Room.Name
+                                </td>
+                                <td rowspan="2" class="xl363" width="81" style="border-bottom:1.0pt solid black;
+  width:61pt">
+                                    Meal TYPE
+                                </td>
+                                <td colspan="5" class="xl365" width="415" style="border-right:1.0pt solid black;
+  width:311pt">
+                                    ROOM OCUPANCY
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr height="22" style="height:16.5pt">
+                                <td height="22" class="xl66" style="height:16.5pt"></td>
+                                <td colspan="3" class="xl367" style="border-right:1.0pt solid black">
+                                    DATE OF BOOKING
+                                </td>
+                                <td class="xl80" style="border-top:none;border-left:none">SNGL</td>
+                                <td class="xl81" style="border-top:none;border-left:none">DBL/TWIN</td>
+                                <td class="xl81" style="border-top:none;border-left:none">DBL/KING</td>
+                                <td class="xl81" style="border-top:none;border-left:none">TRPL</td>
+                                <td class="xl82" style="border-top:none;border-left:none">QUAD</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr height="22" style="mso-height-source:userset;height:16.5pt">
+                                <td height="22" class="xl66" style="height:16.5pt"></td>
+                                <td class="xl80" style="border-top:none">IN</td>
+                                <td colspan="2" class="xl81" style="border-right:1.0pt solid black;border-left:
+  none">
+                                    OUT
+                                </td>
+                                <td class="xl83" width="81" style="border-top:none;border-left:none;width:61pt">&nbsp;</td>
+                                <td class="xl90" width="79" style="border-top:none;border-left:none;width:59pt">0</td>
+                                <td class="xl91" width="80" style="border-top:none;border-left:none;width:60pt">0</td>
+                                <td class="xl91" width="80" style="border-top:none;border-left:none;width:60pt">0</td>
+                                <td class="xl91" width="83" style="border-top:none;border-left:none;width:62pt">0</td>
+                                <td class="xl92" width="93" style="border-top:none;border-left:none;width:70pt">0</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr height="35" style="height:26.25pt">
+                                <td height="35" class="xl66" style="height:26.25pt"></td>
+                                <td class="xl85" style="border-top:none">@Prog.Terminal.FinalBooking.CheckIn.ToShortDateString()</td>
+                                <td colspan="2" class="xl350" style="border-right:1.0pt solid black;border-left:
+  none">
+                                    @Prog.Terminal.FinalBooking.CheckOut.ToShortDateString()
+                                </td>
+                                <td class="xl84" align="left" width="81" style="border-left:none;width:61pt">
+                                    @bRate.Rate.BoardName
+                                </td>
+                                <td class="xl88" width="79" style="border-top:none;border-left:none;width:59pt">
+                                    RO
+                                    OR BB OR HB OR FB<span style="mso-spacerun:yes">&nbsp;</span>
+                                </td>
+                                <td class="xl88" width="80" style="border-top:none;border-left:none;width:60pt">
+                                    RO
+                                    OR BB OR HB OR FB<span style="mso-spacerun:yes">&nbsp;</span>
+                                </td>
+                                <td class="xl88" width="80" style="border-top:none;border-left:none;width:60pt">
+                                    RO
+                                    OR BB OR HB OR FB<span style="mso-spacerun:yes">&nbsp;</span>
+                                </td>
+                                <td class="xl88" width="83" style="border-top:none;border-left:none;width:62pt">
+                                    RO
+                                    OR BB OR HB OR FB<span style="mso-spacerun:yes">&nbsp;</span>
+                                </td>
+                                <td class="xl88" width="93" style="border-top:none;border-left:none;width:70pt">
+                                    RO
+                                    OR BB OR HB OR FB<span style="mso-spacerun:yes">&nbsp;</span>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr height="22" style="height:16.5pt">
+                                <td height="22" class="xl66" style="height:16.5pt"></td>
+                                <td colspan="9" class="xl352" style="border-right:1.0pt solid black">
+                                    PROMOTION
+                                    CODE/NAME IF ANY….
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr height="22" style="height:16.5pt">
+                                <td height="22" class="xl66" style="height:16.5pt"></td>
+                                <td colspan="9" class="xl355" style="border-right:1.0pt solid black">
+                                    <font class="font6">Remarks</font><font class="font5"> : </font><font class="font7">
+                                        this
+                                        field will show free text by staff
+                                    </font>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr height="22" style="height:16.5pt">
+                                <td height="22" class="xl66" style="height:16.5pt"></td>
+                                <td colspan="9" class="xl355" style="border-right:1.0pt solid black"><font class="font6">Extra Supplement</font><font class="font5"> : </font><font class="font7">Extra Bed or CHD Sharing Or CHD MEAL …….</font></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr height="21" style="height:15.75pt">
+                                <td height="21" class="xl66" style="height:15.75pt"></td>
+                                <td class="xl73" width="121" style="width:91pt"></td>
+                                <td class="xl73" width="64" style="width:48pt"></td>
+                                <td class="xl73" width="141" style="width:106pt"></td>
+                                <td class="xl73" width="81" style="width:61pt"></td>
+                                <td class="xl73" width="79" style="width:59pt"></td>
+                                <td class="xl73" width="80" style="width:60pt"></td>
+                                <td class="xl75" width="80" style="width:60pt"></td>
+                                <td class="xl73" width="83" style="width:62pt"></td>
+                                <td class="xl73" width="93" style="width:70pt"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        }
+                    }
+                    <tr height="51" style="mso-height-source:userset;height:38.25pt">
+                        <td height="51" class="xl66" style="height:38.25pt"></td>
+                        <td colspan="9" class="xl358">
+                            from the xml online system the Cancelation Dead
+                            line or Condetions must apear
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr height="20" style="mso-height-source:userset;height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td colspan="2" class="xl383" width="185" style="width:139pt">
+                            Please Read
+                            Carefully:
+                        </td>
+                        <td class="xl73" width="141" style="width:106pt"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="mso-height-source:userset;height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td colspan="2" class="xl383" width="185" style="width:139pt">RO: Room Only<span style="mso-spacerun:yes">&nbsp;</span></td>
+                        <td class="xl87" width="141" style="width:106pt">BB: Bed &amp; Breakfast</td>
+                        <td colspan="2" class="xl219" width="160" style="width:120pt">HB: Half Board</td>
+                        <td colspan="2" class="xl219" width="160" style="width:120pt">FB: Full Board</td>
+                        <td colspan="2" class="xl219" width="176" style="width:132pt">All Inclusive<span style="mso-spacerun:yes">&nbsp;</span></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl73" width="121" style="width:91pt"></td>
+                        <td class="xl73" width="64" style="width:48pt"></td>
+                        <td class="xl73" width="141" style="width:106pt"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="mso-height-source:userset;height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td colspan="9" class="xl223" width="822" style="width:617pt">
+                            BOOKED &amp; PAID
+                            THROUGH <font class="font19">"ALTI Travel"</font>
+                        </td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="mso-height-source:userset;height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td colspan="7" class="xl218" width="646" style="width:485pt">
+                            <font class="font11">1-</font><font class="font12"> "ALTI Travel"</font><font class="font0">
+                                is
+                                responsible only for services listed above<span style="mso-spacerun:yes">
+                                    &nbsp;
+                                </span>only &amp; all extras will be paid direct from guests unless
+                                "ALTI Travel" writen confirmation on this extra services
+                            </font>
+                        </td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="35" style="mso-height-source:userset;height:26.25pt">
+                        <td height="35" class="xl66" style="height:26.25pt"></td>
+                        <td colspan="7" class="xl218" width="646" style="width:485pt">
+                            2- This document of
+                            reservation with <font class="font18">"ALTI Travel"</font><font class="font0">
+                                confirm that you accept and agree to the relevant cancellation
+                                and no-show policy of thais services
+                            </font>
+                        </td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="mso-height-source:userset;height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td colspan="9" class="xl218" width="822" style="width:617pt">
+                            3- The general
+                            cancellation and no-show policy applied on the booked services
+                        </td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="mso-height-source:userset;height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td colspan="9" class="xl218" width="822" style="width:617pt">
+                            <font class="font11">
+                                4-
+                            </font><font class="font12">"ALTI Travel"</font><font class="font0">
+                                disclaims any liability or responsibility for any communication with the
+                                Supplier on or through its platform
+                            </font>
+                        </td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="mso-height-source:userset;height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td colspan="9" class="xl225" width="822" style="width:617pt">
+                            <font class="font21">
+                                Extra
+                                remarks from
+                            </font><font class="font22">"ALTI Travel" :- </font><font class="font23">(text comes from the backofficeonline system if any)</font>
+                        </td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="mso-height-source:userset;height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl73" width="121" style="width:91pt"></td>
+                        <td class="xl73" width="64" style="width:48pt"></td>
+                        <td class="xl73" width="141" style="width:106pt"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl86" align="left" width="121" style="width:91pt">Sincerely,</td>
+                        <td class="xl73" width="64" style="width:48pt"></td>
+                        <td class="xl73" width="141" style="width:106pt"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="mso-height-source:userset;height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl96" align="left" width="121" style="width:91pt">"ALTI Travel"<span style="mso-spacerun:yes">&nbsp;</span></td>
+                        <td class="xl73" width="64" style="width:48pt"></td>
+                        <td class="xl73" width="141" style="width:106pt"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl73" width="121" style="width:91pt"></td>
+                        <td class="xl73" width="64" style="width:48pt"></td>
+                        <td class="xl73" width="141" style="width:106pt"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="21" style="height:15.75pt">
+                        <td height="21" class="xl66" style="height:15.75pt"></td>
+                        <td colspan="3" class="xl349" width="326" style="width:245pt">
+                            ALTI Group , ALTI
+                            Travel &amp; Tours
+                        </td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td colspan="3" class="xl348" width="326" style="width:245pt">
+                            Emergency Number :
+                            "ALTI Travel online number"
+                        </td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl107" colspan="2" align="left" style="mso-ignore:colspan">
+                            <a href="http://www.altitravel.com/" target="_parent">
+                                <span style="color:windowtext;
+  font-weight:700;text-decoration:none">www.altitravel.com</span>
+                            </a>
+                        </td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl105" colspan="3" align="left" style="mso-ignore:colspan">
+                            T. +962 6 553
+                            5525, F. +962 6 553 8828
+                        </td>
+                        <td class="xl105" colspan="3" align="left" style="mso-ignore:colspan">
+                            E-mail:
+                            online@altitravel.com
+                        </td>
+                        <td class="xl105" colspan="3" align="left" style="mso-ignore:colspan">
+                            P.O. Box
+                            1883, Amman 11821, Jordan
+                        </td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl105"></td>
+                        <td class="xl105"></td>
+                        <td class="xl105"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl105"></td>
+                        <td class="xl105"></td>
+                        <td class="xl105"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <tr height="20" style="height:15.0pt">
+                        <td height="20" class="xl66" style="height:15.0pt"></td>
+                        <td class="xl106"></td>
+                        <td class="xl105"></td>
+                        <td class="xl105"></td>
+                        <td class="xl73" width="81" style="width:61pt"></td>
+                        <td class="xl73" width="79" style="width:59pt"></td>
+                        <td class="xl73" width="80" style="width:60pt"></td>
+                        <td class="xl75" width="80" style="width:60pt"></td>
+                        <td class="xl73" width="83" style="width:62pt"></td>
+                        <td class="xl73" width="93" style="width:70pt"></td>
+                        <td colspan="19" style="mso-ignore:colspan"></td>
+                    </tr>
+                    <!--[if supportMisalignedColumns]-->
+                    <tr height="0" style="display:none">
+                        <td width="64" style="width:48pt"></td>
+                        <td width="121" style="width:91pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="141" style="width:106pt"></td>
+                        <td width="81" style="width:61pt"></td>
+                        <td width="79" style="width:59pt"></td>
+                        <td width="80" style="width:60pt"></td>
+                        <td width="80" style="width:60pt"></td>
+                        <td width="83" style="width:62pt"></td>
+                        <td width="93" style="width:70pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                        <td width="64" style="width:48pt"></td>
+                    </tr>
+                    <!--[endif]-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

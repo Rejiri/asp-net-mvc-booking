@@ -1,0 +1,84 @@
+﻿@{
+    Layout = "~/Views/Shared/_CPanel.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-5">
+        <form action="">
+            <h4>Personal Infomation</h4>
+            <div class="form-group form-group-icon-left">
+                <i class="fa fa-user input-icon"></i>
+                <label>First Name</label>
+                <input class="form-control" value="@Prog.Terminal.CompanyUnderEdit.Agent.FirstName" type="text" id="txtFirstName" />
+            </div>
+            <div class="form-group form-group-icon-left">
+                <i class="fa fa-user input-icon"></i>
+                <label>Last Name</label>
+                <input class="form-control" value="@Prog.Terminal.CompanyUnderEdit.Agent.LastName" type="text" id="txtLastName" />
+            </div>
+            <div class="form-group form-group-icon-left">
+                <i class="fa fa-envelope input-icon"></i>
+                <label>E-mail</label>
+                <input class="form-control" value="@Prog.Terminal.CompanyUnderEdit.Agent.Email" type="text" id="txtEmail" />
+            </div>
+            <div class="form-group form-group-icon-left">
+                <i class="fa fa-phone input-icon"></i>
+                <label>Phone Number</label>
+                <input class="form-control" value="@Prog.Terminal.CompanyUnderEdit.Agent.PhoneNo" type="text" id="txtPhoneNo" />
+            </div>
+            <div class="gap gap-small"></div>
+            <h4>Location</h4>
+            <div class="form-group">
+                <label>City</label>
+                <input class="form-control" value="@Prog.Terminal.CompanyUnderEdit.City" type="text" id="txtCity" />
+            </div>
+            <div class="form-group">
+                <label>ZIP code/Postal code</label>
+                <input class="form-control" value="@Prog.Terminal.CompanyUnderEdit.ZipCode" type="text" id="txtZipCode" />
+            </div>
+            <div class="form-group">
+                <label>Country</label>
+                <input class="form-control" value="@Prog.Terminal.CompanyUnderEdit.Country" type="text" id="txtCountry" />
+            </div>
+            <hr>
+            @*<input type="submit" class="btn btn-primary" value="Save Changes">*@
+        </form>
+    </div>
+    <div class="col-md-4 col-md-offset-1">
+        <h4>Settings</h4>
+        <form>
+            <div class="form-group form-group-icon-left">
+                <i class="fa fa-info input-icon"></i>
+                <label>Profit</label>
+                <input class="form-control" type="number" id="txtProfit" value="@Prog.Terminal.CompanyUnderEdit.Profit" />
+            </div>
+            <div class="form-group form-group-icon-left">
+                <i class="fa fa-dollar input-icon"></i>
+                <label>Credit Limit</label>
+                <input class="form-control" type="number" id="txtCreditLimit" value="@Prog.Terminal.CompanyUnderEdit.CreditLimit" />
+            </div>
+            <div class="form-group form-group-icon-left">
+                @*<i class="fa fa-lock input-icon"></i>*@
+                <label>Remarks</label>
+                <textarea class="form-control" rows="6" id="txtRemarks"></textarea>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input class="i-check" type="checkbox" value="approved" id="chkApproved" @(Prog.Terminal.CompanyUnderEdit.IsApproved ? "checked" : "") /> Approved
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input class="i-check" type="checkbox" value="active" id="chkActive" @(Prog.Terminal.CompanyUnderEdit.IsActive ? "checked" : "") /> Active
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input class="i-check" type="checkbox" value="sendEmail" id="chkSendEmail" /> Send Email + SMS to Customer &Aacute; Admin.
+                </label>
+            </div>
+            <hr />
+            <a class="btn btn-primary btn-lg" onclick="fwLink(101102)">Save Settings</a>
+        </form>
+    </div>
+</div>

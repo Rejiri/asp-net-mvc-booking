@@ -1,0 +1,339 @@
+﻿@{
+
+}
+
+
+<div class="container">
+    <ul class="breadcrumb hidden">
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>
+            <a href="#">United States</a>
+        </li>
+        <li>
+            <a href="#">New York (NY)</a>
+        </li>
+        <li>
+            <a href="#">New York City</a>
+        </li>
+        <li class="active">New York City Hotels</li>
+    </ul>
+    <div class="mfp-with-anim mfp-hide white-popup" id="popup-search">
+        <div class="full-center">
+            <div class="container">
+                <div class="spinner-clock">
+                    <div class="spinner-clock-hour"></div>
+                    <div class="spinner-clock-minute"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mfp-with-anim mfp-hide mfp-dialog" id="popup-loading">
+        <h3>Searching for Hotel, please wait...</h3>
+    </div>
+    <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="search-dialog">
+        <h3>Search for Hotel</h3>
+        <form>
+            <div class="form-group form-group-lg form-group-icon-left">
+                <i class="fa fa-map-marker input-icon input-icon-highlight"></i>
+                <label>Where are you going?</label>
+                <input class="typeahead form-control" placeholder="City, Airport, Point of Interest, Hotel Name or U.S. Zip Code" type="text" />
+            </div>
+            <div class="input-daterange" data-date-format="MM d, D">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group form-group-lg form-group-icon-left">
+                            <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                            <label>Check-in</label>
+                            <input class="form-control" name="start" type="text" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-lg form-group-icon-left">
+                            <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                            <label>Check-out</label>
+                            <input class="form-control" name="end" type="text" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-lg form-group-select-plus">
+                            <label>Rooms</label>
+                            <div class="btn-group btn-group-select-num" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options" />1
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" />2
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" />3
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" />3+
+                                </label>
+                            </div>
+                            <select class="form-control hidden">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option selected="selected">4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-lg form-group-select-plus">
+                            <label>Gutests</label>
+                            <div class="btn-group btn-group-select-num" data-toggle="buttons">
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" />1
+                                </label>
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options" />2
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" />3
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" />3+
+                                </label>
+                            </div>
+                            <select class="form-control hidden">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option selected="selected">4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit">Search for Hotels</button>
+        </form>
+    </div>
+    <h3 class="booking-title">
+        @string.Format("{0} hotels in {1} on {2} - {3} for {4} adult(s)",
+        Prog.Terminal.BasicBooking.FilteredHotels.Count(),
+        Prog.Terminal.BasicBooking.City,
+        Prog.Terminal.BasicBooking.CheckIn.ToString("MMM dd"),
+        Prog.Terminal.BasicBooking.CheckOut.ToString("MMM dd"),
+        Prog.Terminal.BasicBooking.AdultsCount)
+    </h3>
+    <form class="booking-item-dates-change mb40 divSearchPanel">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group form-group-icon-left">
+                    <i class="fa fa-map-marker input-icon input-icon-hightlight"></i>
+                    <label>Where</label>
+                    <input class="typeahead form-control" id="txtPlace" placeholder="Destination (Hotel name, City)" type="text" value="@Prog.Terminal.BasicBooking.Place" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-daterange" data-date-format="dd/mm/yyyy">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-icon-left">
+                                <i class="fa fa-calendar input-icon input-icon-hightlight"></i>
+                                <label>Check in</label>
+                                <input class="form-control" name="start" type="text" id="txtCheckIn" value="@Prog.Terminal.BasicBooking.FormattedCheckIn" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-icon-left">
+                                <i class="fa fa-calendar input-icon input-icon-hightlight"></i>
+                                <label>Check out</label>
+                                <input class="form-control" name="end" type="text" id="txtCheckOut" value="@Prog.Terminal.BasicBooking.FormattedCheckOut" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group form-group-select-plus">
+                            <label>Rooms</label>
+                            <div class="btn-group btn-group-select-num @Prog.Terminal.BasicBooking.IsRoomCirclesHidden" data-toggle="buttons" id="txtRooms">
+                                @MvcHtmlString.Create(HTMLElements.GetCircledButtons(3, Prog.Terminal.BasicBooking.RoomsCount))
+                            </div>
+                            <select class="form-control @Prog.Terminal.BasicBooking.IsRoomListHidden" id="txtRooms2">
+                                @MvcHtmlString.Create(HTMLElements.GetOptions(1, 14, Prog.Terminal.BasicBooking.RoomsCount))
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group- form-group-select-plus">
+                            <label>Adults</label>
+                            <div class="btn-group btn-group-select-num @Prog.Terminal.BasicBooking.IsAdultsCirclesHidden" data-toggle="buttons" id="txtAdults">
+                                @MvcHtmlString.Create(HTMLElements.GetCircledButtons(3, Prog.Terminal.BasicBooking.AdultsCount))
+                            </div>
+                            <select class="form-control @Prog.Terminal.BasicBooking.IsAdultsListHidden" id="txtAdults2">
+                                @MvcHtmlString.Create(HTMLElements.GetOptions(1, 14, Prog.Terminal.BasicBooking.AdultsCount))
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-select-plus">
+                            <label>Child</label>
+                            <select class="form-control" onchange="onChildChange()" id="txtChild2">
+                                @MvcHtmlString.Create(HTMLElements.GetOptions(0, 6, Prog.Terminal.BasicBooking.ChildrenCount))
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="gap-small"></div>
+                        <div>
+                            <a class="btn btn-primary popup-btnSearch" href="#popup-search" data-effect="mfp-zoom-out" onclick="fwLink(104101)">Search</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row" id="divChild">
+                    @MvcHtmlString.Create(HTMLElements.GetChildrenAge(Prog.Terminal.BasicBooking.ChildrenAge))
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-md-3">
+            <aside class="booking-filters text-white">
+                <h3>Filter By:</h3>
+                <ul class="list booking-filters-list">
+                    <li>
+                        <h5 class="booking-filters-title">Price</h5>
+                        <input type="text" id="price-slider">
+                    </li>
+                    <li>
+                        <h5 class="booking-filters-title">Star Rating</h5>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check iFilter" type="checkbox" value="5S" />5 star (@Prog.Terminal.BasicBooking.BaseHotels.OfStars(5).Count())
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check iFilter" type="checkbox" value="4S" />4 star (@Prog.Terminal.BasicBooking.BaseHotels.OfStars(4).Count())
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check iFilter" type="checkbox" value="3S" />3 star (@Prog.Terminal.BasicBooking.BaseHotels.OfStars(3).Count())
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check iFilter" type="checkbox" value="2S" />2 star (@Prog.Terminal.BasicBooking.BaseHotels.OfStars(2).Count())
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check iFilter" type="checkbox" value="1S" />1 star (@Prog.Terminal.BasicBooking.BaseHotels.OfStars(1).Count())
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="booking-filters-title">Meal Plans</h5>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check iFilter" type="checkbox" value="mpRO" />Room Only (RO) (@Prog.Terminal.BasicBooking.BaseHotels.OfBoardType("RO").Count())
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check iFilter" type="checkbox" value="mpBB" />Bed & Breakfast (BB) (@Prog.Terminal.BasicBooking.BaseHotels.OfBoardType("BB").Count())
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check iFilter" type="checkbox" value="mpHB" />Half Board (HB) (@Prog.Terminal.BasicBooking.BaseHotels.OfBoardType("HB").Count())
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check iFilter" type="checkbox" value="mpFB" />Full Board (FB) (@Prog.Terminal.BasicBooking.BaseHotels.OfBoardType("FB").Count())
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check iFilter" type="checkbox" value="mpAI" />All Inclusive (@Prog.Terminal.BasicBooking.BaseHotels.OfBoardType("AI").Count())
+                            </label>
+                        </div>
+                    </li>
+                    @{
+                        List<string> districts = Prog.Content.GetDistricts();
+
+                        if (districts.Count > 0)
+                        {
+                            <li>
+                                <h5 class="booking-filters-title">Districts</h5>
+                                <div>
+                                    <div class="radio">
+                                        <label>
+                                            <input class="i-radio iFilter" type="radio" value="di_All" name="ratioOption" checked /> All Districts (@Prog.Terminal.BasicBooking.BaseHotels.Count())
+                                        </label>
+                                    </div>
+                                    @foreach (string district in districts)
+                                    {
+                                        <div class="radio">
+                                            <label>
+                                                <input class="i-radio iFilter" type="radio" value="di_@(district)_" name="ratioOption" /> @district (@Prog.Terminal.BasicBooking.BaseHotels.OfDistrict(district.ToLower()).Count())
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </aside>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="list-sorting">
+                    <div class="col-md-3">
+                        <span><a class="booking-sort-title-bar" style="color: #c96810; text-decoration: underline" href="#" onclick="fwLink(10410201, 'SPL')">Price (low to high)</a></span>
+                    </div>
+                    <div class="col-md-3">
+                        <span><a class="booking-sort-title-bar" href="#" onclick="fwLink(10410201, 'SPH')">Price (hight to low)</a></span>
+                    </div>
+                    <div class="col-md-3">
+                        <span><a class="booking-sort-title-bar" href="#" onclick="fwLink(10410201, 'SSL')">Ranking (low to high)</a></span>
+                    </div>
+                    <div class="col-md-3">
+                        <span><a class="booking-sort-title-bar" href="#" onclick="fwLink(10410201, 'SSH')">Ranking (hight to low)</a></span>
+                    </div>
+                    @*<div class="col-md-2">
+                            <span class="booking-sort-title-bar"><a href="#" onclick="fwLink(10410201, 'SRH')">Number of Reviews</a></span>
+                        </div>*@
+                </div>
+            </div>
+            <ul class="booking-list" id="ulHotelsList">
+                @Html.Partial("parHotels")
+            </ul>
+        </div>
+    </div>
+    <div class="gap"></div>
+</div>

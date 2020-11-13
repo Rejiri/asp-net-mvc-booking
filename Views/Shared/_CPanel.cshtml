@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1 class="page-title">Control Panel</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <aside class="user-profile-sidebar">
+                <div class="user-profile-avatar text-center">
+                    <img src="../img/@Prog.Terminal.User.Company.BigLogo" alt="Image Alternative text" title="" />
+                    <h5>@Prog.Terminal.User.Company.Name</h5>
+                    <p>@Prog.Terminal.User.FullName</p>
+                </div>
+                <ul class="list user-profile-nav">
+                    @if (Prog.Terminal.User.IsAdmin)
+                    {
+                        <li>
+                            <a href="#" onclick="fwLink(102105)"><i class="fa fa-home"></i>Overview</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="fwLink(101103)"><i class="fa fa-user"></i>Agents</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="fwLink(101104)"><i class="fa fa-user"></i>Data Sources (XMLs)</a>
+                        </li>
+                    }
+                    else if (Prog.Terminal.IsCompany)
+                    {
+                        <li>
+                            <a href="#" onclick="fwLink(102105)"><i class="fa fa-home"></i>Overview</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="fwLink(103105)"><i class="fa fa-clock-o"></i>Booking History</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="fwLink(103106)"><i class="fa fa-credit-card"></i>Balance</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="fwLink(103104)"><i class="fa fa-cog"></i>Users</a>
+                        </li>
+                    }
+                </ul>
+            </aside>
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>

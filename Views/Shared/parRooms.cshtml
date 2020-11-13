@@ -1,0 +1,115 @@
+﻿@{
+    if (Prog.Terminal.FinalBooking.SelectedHotel.HasSoldOut)
+    {
+        <p>@Misc.NoResults</p>
+    }
+    else
+    {
+        foreach (Room room in Prog.Terminal.FinalBooking.SelectedHotel.Rooms)
+        {
+            <li>
+                <a class="booking-item">
+                    <div class="row">
+                        <div class="col-md-4" style="padding-bottom: 10px;">
+                            <img style="max-height: 150px;" src="http://photos.hotelbeds.com/giata/@room.Image" alt="Image Alternative text" title="hotel PORTO BAY RIO INTERNACIONAL rooftop pool" onerror="this.src='../img/broken.jpg'" />
+                            <div class="gap-mini"></div>
+                            <div class="text-center"><strong class="booking-item-title">@room.Name</strong></div>
+                            <div class="gap-mini"></div>
+                            <ul style="color: green;">
+                                @if (room.HasFacilities)
+                                {
+                                    foreach (Facility facility in room.Facilities)
+                                    {
+                                        <li>@facility.Name</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                        <div class="col-md-8">
+                            @foreach (Rate rate in room.DistinctRates)
+                            {
+                                <div class="row" style="padding: 8px; border-bottom: 1px solid #f7f7f7;">
+                                    <div class="col-md-8">
+                                        <strong>@room.Name</strong>
+                                        <div class="gap-mini"></div>
+                                        <ul><li><strong style="color: green">@rate.BoardName</strong></li></ul>
+                                        <ul class="booking-item-features booking-item-features-sign clearfix" style="margin-top: 10px;">
+                                            @if (rate.Room.HasFacilities)
+                                            {
+                                                foreach (Facility facility in rate.Room.Facilities)
+                                                {
+                                                    <li rel="tooltip" data-placement="top" title="@facility.Name">
+                                                        <i class="@facility.Icon"></i><span class="booking-item-feature-sign">@*@facility.Name*@</span>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                        <ul style="color: red">
+                                            @{
+                                                if (rate.Cancellable)
+                                                {
+                                                    foreach (Cancellation can in rate.Cancellation)
+                                                    {
+                                                        <li>@can.FormattedNote</li>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <li>@Misc.NonRefundableShort</li>
+                                                }
+
+                                                if (rate.HasPromotions)
+                                                {
+                                                    foreach (Promotion pro in rate.Promotions)
+                                                    {
+                                                        <li style="color: blue;">@(pro.Name).@pro.Remark</li>
+                                                    }
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div>
+                                            @if (rate.HasOffers)
+                                            {
+                                                <div style="margin-bottom: 10px;">
+                                                    <span class="booking-item-price" style="color: red; font-size: medium;"><strike>$@rate.CancelledNet</strike></span>
+                                                    <span class="booking-item-price" style="color: green;">$@rate.LastNet</span>
+                                                    <span style="color: blue;">@MvcHtmlString.Create(rate.FormattedHtmlOffers)</span>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <span class="booking-item-price">$@rate.LastNet</span><span>/night</span>
+                                            }
+                                        </div>
+                                        <div>
+                                            @*<div class="gap-small"></div>*@
+                                            <div class="form-group form-group-icon-left">
+                                                <i class="fa fa-bars input-icon input-icon-hightlight"></i>
+                                                <label>Count</label>
+                                                <select class="form-control cmbCount" onchange="onRoomChanged()">
+                                                    <option selected="selected">0</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                </select>
+                                                <input type="hidden" value='{"rId": "@rate.Key", "rPrice": @rate.LastNet}' />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gap-mini"></div>
+                                @*<hr />*@
+                                                <div class="gap-mini"></div>
+                                                }
+                        </div>
+                    </div>
+                </a>
+            </li>
+                                                    }
+                                                }
+}

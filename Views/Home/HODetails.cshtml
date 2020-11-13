@@ -1,0 +1,300 @@
+﻿@using System.Xml.Linq;
+
+@{
+
+}
+
+
+<div class="gap"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Agent Details</h3>
+            @*<p>Enter your details</p>*@
+            <form>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-tag input-icon input-icon-hightlight"></i>
+                            <label>Title</label>
+                            @*<input class="form-control" placeholder="Mr. Mrs." type="text" id="txtTitle" />*@
+                            <select class="form-control">
+                                <option selected>Mr.</option>
+                                <option>Mrs.</option>
+                                <option>Ms.</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-user input-icon input-icon-show"></i>
+                            <label>First Name</label>
+                            <input class="form-control" placeholder="john" type="text" id="txtFirstName" value="@Prog.Terminal.User.FirstName" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-user input-icon input-icon-show"></i>
+                            <label>Last Name</label>
+                            <input class="form-control" placeholder="smith" type="text" id="txtLastName" value="@Prog.Terminal.User.LastName" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-info input-icon input-icon-hightlight"></i>
+                            <label>Agent Booking Ref. No.:</label>
+                            <input class="form-control" placeholder="" type="text" id="txtBRefNo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-phone input-icon input-icon-hightlight"></i>
+                            <label>Phone</label>
+                            <input class="form-control" placeholder="(555) 123 4567" type="text" id="txtPhone" value="@Prog.Terminal.User.PhoneNo" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-envelope input-icon input-icon-hightlight"></i>
+                            <label>E-mail</label>
+                            <input class="form-control" placeholder="someone@example.com" type="text" id="txtEmail" value="@Prog.Terminal.User.Email" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="gap"></div>
+            <h3>Customer Details</h3>
+            @*<p>Enter your details</p>*@
+            <form>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-tag input-icon input-icon-hightlight"></i>
+                            <label>Title</label>
+                            @*<input class="form-control" placeholder="Mr. Mrs." type="text" id="txtTitle" />*@
+                            <select class="form-control" id="cmbCuTitle">
+                                <option selected>Mr.</option>
+                                <option>Mrs.</option>
+                                <option>Ms.</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-user input-icon input-icon-show"></i>
+                            <label>First Name</label>
+                            <input class="form-control" placeholder="john" type="text" id="txtCuFirstName" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-user input-icon input-icon-show"></i>
+                            <label>Last Name</label>
+                            <input class="form-control" placeholder="smith" type="text" id="txtCuLastName" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-info input-icon input-icon-hightlight"></i>
+                            <label>Nationality:</label>
+                            <input class="typeaheadNationality form-control" placeholder="nationality" type="text" id="txtCuNationality" onfocus="onNatFocus();" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-phone input-icon input-icon-hightlight"></i>
+                            <label>Mobile No.</label>
+                            <input class="form-control" placeholder="(555) 123 4567" type="number" id="txtCuPhone" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-icon-left">
+                            <i class="fa fa-envelope input-icon input-icon-hightlight"></i>
+                            <label>E-mail</label>
+                            <input class="form-control" placeholder="someone@example.com" type="email" id="txtCuEmail" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="gap-mini"></div>
+            <div class="checkbox checkbox-switch">
+                <label>
+                    <input class="i-check" type="checkbox" /> Do you want to send Confirmation to Guest?
+                </label>
+            </div>
+            <div class="checkbox checkbox-switch">
+                <label>
+                    <input class="i-check" type="checkbox" /> Guest Confirmation: WITH PRICE?
+                </label>
+            </div>
+            <div class="gap"></div>
+            <h4>Rooms</h4>
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a style="color: #ed8323" data-toggle="collapse" data-parent="#accordion" href="#collapse-1">Define specific details for each room</a></h4>
+                            </div>
+                            <div class="panel-collapse collapse" id="collapse-1">
+                                <div class="panel-body">
+                                    @for (int i = 0; i < Prog.Terminal.FinalBooking.SelectedRates.Count; i++)
+                                    {
+                                        <label class="paragraph-title">Room @(i + 1)</label>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group form-group-icon-left">
+                                                    <i class="fa fa-tag input-icon input-icon-hightlight"></i>
+                                                    <label>Title</label>
+                                                    <input class="form-control" placeholder="Mr. Mrs." type="text" id="txtTitle" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group form-group-icon-left">
+                                                    <i class="fa fa-user input-icon input-icon-show"></i>
+                                                    <label>First Name</label>
+                                                    <input class="form-control" placeholder="john" type="text" id="txtFirstName" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group form-group-icon-left">
+                                                    <i class="fa fa-user input-icon input-icon-show"></i>
+                                                    <label>Last Name</label>
+                                                    <input class="form-control" placeholder="smith" type="text" id="txtLastName" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Pay using your credits</h4>
+                    <p>Important: Your balance will be charged in order to complete the current process</p><a class="btn btn-primary" onclick="fwLink(104104)">Pay Now</a>
+                </div>
+                <div class="col-md-6">
+                    <h4>Pay via Credit/Debit Card</h4>
+                    <ul class="card-select">
+                        <li>
+                            <img class="card-select-img" src="/img/payment/visa-curved-64px.png" alt="Image Alternative text" title="Image Title" />
+                            <img class="card-select-img" src="/img/payment/maestro-curved-64px.png" alt="Image Alternative text" title="Image Title" />
+                            <img class="card-select-img" src="/img/payment/mastercard-curved-64px.png" alt="Image Alternative text" title="Image Title" />
+                        </li>
+                    </ul>
+                    <form class="cc-form">
+                        <div class="clearfix">
+                            <div class="form-group form-group-cc-number">
+                                <label>Card Number</label>
+                                <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" type="text" /><span class="cc-card-icon"></span>
+                            </div>
+                            <div class="form-group form-group-cc-cvc">
+                                <label>CVC</label>
+                                <input class="form-control" placeholder="xxxx" type="text" />
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <div class="form-group form-group-cc-name">
+                                <label>Cardholder Name</label>
+                                <input class="form-control" type="text" />
+                            </div>
+                            <div class="form-group form-group-cc-date">
+                                <label>Valid Thru</label>
+                                <input class="form-control" placeholder="mm/yy" type="text" />
+                            </div>
+                        </div>
+                        <div class="checkbox checkbox-small">
+                            <label>
+                                <input class="i-check" type="checkbox" checked />Add to My Cards
+                            </label>
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="Proceed Payment" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="booking-item-payment">
+                <header class="clearfix">
+                    <a class="booking-item-payment-img" href="#">
+                        <img src="http://photos.hotelbeds.com/giata/@Prog.Terminal.FinalBooking.SelectedHotel.DefaultImage" onerror="this.src='../img/broken.jpg'" alt="Image Alternative text" title="hotel 1" />
+                    </a>
+                    <h5 class="booking-item-payment-title"><a href="#">@Prog.Terminal.FinalBooking.SelectedHotel.Name</a></h5>
+                    <ul class="icon-group booking-item-rating-stars">
+                        @for (int i = 0; i < @Prog.Terminal.FinalBooking.SelectedHotel.Stars; i++)
+                        {
+                            <li>
+                                <i class="fa fa-star"></i>
+                            </li>
+                        }
+                        @for (int j = @Prog.Terminal.FinalBooking.SelectedHotel.Stars; j < 5; j++)
+                        {
+                            <li>
+                                <i class="fa fa-star-o"></i>
+                            </li>
+                        }
+                    </ul>
+                </header>
+                <ul class="booking-item-payment-details">
+                    <li>
+                        <h5>Booking for @Prog.Terminal.FinalBooking.TotalNights nights</h5>
+                        <div class="booking-item-payment-date">
+                            <p class="booking-item-payment-date-day">@Prog.Terminal.FinalBooking.FormattedCheckIn2</p>
+                            <p class="booking-item-payment-date-weekday">@Prog.Terminal.FinalBooking.CheckIn.DayOfWeek</p>
+                        </div><i class="fa fa-arrow-right booking-item-payment-date-separator"></i>
+                        <div class="booking-item-payment-date">
+                            <p class="booking-item-payment-date-day">@Prog.Terminal.FinalBooking.FormattedCheckOut2</p>
+                            <p class="booking-item-payment-date-weekday">@Prog.Terminal.FinalBooking.CheckOut.DayOfWeek</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5>Rooms</h5>
+                        @foreach (BookingRate bRate in Prog.Terminal.FinalBooking.SelectedRates)
+                        {
+                            <p class="booking-item-payment-item-title">@bRate.Rate.Room.Name (@bRate.Count)</p>
+                            <ul class="booking-item-payment-price">
+                                <li>
+                                    <p class="booking-item-payment-price-title">@Prog.Terminal.FinalBooking.TotalNights Nights</p>
+                                    <p class="booking-item-payment-price-amount">
+                                        $@bRate.TotalPrice<small>/per day</small>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="booking-item-payment-price-title">Taxes</p>
+                                    <p class="booking-item-payment-price-amount">
+                                        $0<small>/per day</small>
+                                    </p>
+                                </li>
+                            </ul>
+                        }
+                    </li>
+                    <li>
+                        <span style="color: red">
+                            <strong>Cancellation Policies</strong>
+                            @if (Prog.Terminal.FinalBooking.Cancellable)
+                            {
+                                <p>@Prog.Terminal.FinalBooking.FirstActiveCancellation.FormattedNote</p>
+                            }
+                            else
+                            {
+                                <p>@Misc.NonRefundable</p>
+                            }
+                        </span>
+                    </li>
+                </ul>
+                <p class="booking-item-payment-total">
+                    Total trip: <span>$@Prog.Terminal.FinalBooking.TotalPrice</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="gap"></div>
+</div>

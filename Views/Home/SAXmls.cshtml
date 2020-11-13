@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_CPanel.cshtml";
+}
+
+<h4>Xmls Data Source</h4>
+<div class="gap" />
+<table class="table table-bordered table-striped table-booking-history">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Booking Counts</th>
+            <th>Creation Date</th>
+            <th>Balance</th>
+            <th>Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (XmlDataSource source in XmlDataSource.Xmls)
+            {
+                <tr>
+                    <td class="booking-history-type">
+                        <i class="fa fa-database"></i>
+                    </td>
+                    <td>@source.Name</td>
+                    <td></td>
+                    <td></td>
+                    <td>@source.Balance</td>
+                    <td class="text-center">
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check" type="checkbox" value="isActive" id="chkIsActive" @(source.IsActive ? "checked" : "") />
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,0 +1,133 @@
+﻿@{
+    Layout = "~/Views/Shared/_CPanel.cshtml";
+}
+
+<div class="container">
+    <h5 class="page-title"></h5>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+            <label>From:</label>
+            <input class="date-pick form-control" data-date-format="dd/mm/yyyy" type="text" id="dtFrom" value="@(Prog.Terminal.LastRequestCache?.fromDate ?? DateTime.Now.ToString("dd/MM/yyyy"))" />
+        </div>
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-info input-icon input-icon-hightlight"></i>
+            <label>Country:</label>
+            <input class="typeaheadCities form-control" placeholder="" type="text" id="txtCountry" value="@(Prog.Terminal.LastRequestCache?.country)" disabled />
+        </div>
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-info input-icon input-icon-hightlight"></i>
+            <label>Guest First Name:</label>
+            <input class="form-control" placeholder="" type="text" id="txtFirstName" value="@(Prog.Terminal.LastRequestCache?.firstName)" />
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+            <label>To:</label>
+            <input class="date-pick form-control" data-date-format="dd/mm/yyyy" type="text" id="dtTo" value="@(Prog.Terminal.LastRequestCache?.toDate ?? DateTime.Now.AddMonths(1).ToString("dd/MM/yyyy"))" / />
+        </div>
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-info input-icon input-icon-hightlight"></i>
+            <label>City:</label>
+            <input class="typeaheadCities form-control" placeholder="" type="text" id="txtCity" value="@(Prog.Terminal.LastRequestCache?.city)" />
+        </div>
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-info input-icon input-icon-hightlight"></i>
+            <label>Guest Last Name:</label>
+            <input class="form-control" placeholder="" type="text" id="txtLastName" value="@(Prog.Terminal.LastRequestCache?.lastName)" />
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-book input-icon input-icon-hightlight"></i>
+            <label>Booking Ref. No.:</label>
+            <input class="form-control" placeholder="" type="text" id="txtBRefNo" value="@(Prog.Terminal.LastRequestCache?.bRefNo)" />
+        </div>
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-home input-icon input-icon-hightlight"></i>
+            <label>Hotel:</label>
+            <input class="typeaheadHotels form-control" placeholder="" type="text" id="txtHotelName" value="@(Prog.Terminal.LastRequestCache?.hotelName)" />
+        </div>
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-tag input-icon input-icon-hightlight"></i>
+            <label>Type</label>
+            <select class="form-control" id="cmbBStatus">
+                <option value="@((int)BookingStatus.All)" selected>All</option>
+                <option value="@((int)BookingStatus.Pending)">Pending</option>
+                <option value="@((int)BookingStatus.Confirmed)">Confirmed</option>
+                <option value="@((int)BookingStatus.ReConfirmed)">Reconfirmed</option>
+                <option value="@((int)BookingStatus.Cancelled)">Cancelled</option>
+                <option value="@((int)BookingStatus.OnTimeLimit)">On Time Limit</option>
+            </select>
+        </div>
+        <a class="btn btn-primary" onclick="fwLink(103102)">Search</a><span class="pull-right"><i class="fa fa-print"></i> Print</span>
+    </div>
+</div>
+<div style="margin-top: 15px;">
+    <table class="table table-bordered table-striped table-booking-history">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Title</th>
+                <th>Location</th>
+                <th>Order Date</th>
+                <th>Execution Date</th>
+                <th>Cost</th>
+                <th>Current</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (this.TempData.ContainsKey("bCol"))
+                {
+                    foreach (BookingInfo bookingInfo in (List<BookingInfo>)this.TempData["bCol"])
+                    {
+                        <tr>
+                            <td class="booking-history-type">
+                                <i class="fa fa-building-o"></i><small>hotel</small>
+                            </td>
+                            <td class="booking-history-title">@bookingInfo.HotelName</td>
+                            <td>@bookingInfo.City</td>
+                            <td>@bookingInfo.CreationDate.ToShortDateString()</td>
+                            <td>@bookingInfo.FormattedCheckIn <i class="fa fa-long-arrow-right"></i> @bookingInfo.FormattedCheckOut</td>
+                            <td>$@bookingInfo.TotalPrice</td>
+                            <td class="text-center">
+                                @if (bookingInfo.BookingStatus == BookingStatus.Confirmed)
+                                {
+                                    <i class="fa fa-check"></i> @(bookingInfo.BookingStatus)
+                                }
+                                else if (bookingInfo.BookingStatus == BookingStatus.ReConfirmed)
+                                {
+                                    <i class="fa fa-check-square"></i> @(bookingInfo.BookingStatus)
+                                }
+                                else if (bookingInfo.BookingStatus == BookingStatus.Cancelled)
+                                {
+                                    <i class="fa fa-ban"></i> @(bookingInfo.BookingStatus)
+                                }
+                            </td>
+                            <td class="text-center">
+                                @if (bookingInfo.BookingStatus == BookingStatus.Pending)
+                                {
+                                    <a class="btn btn-default btn-sm" href="#" onclick="fwLink(10310201, @bookingInfo.Id, @ActionPermission.ABookingConfirm);"><i class="fa fa-check"></i>Confirm</a>
+                                    <a class="btn btn-default btn-sm" href="#" onclick="fwLink(10310201, @bookingInfo.Id, @ActionPermission.ABookingReConfirm);"><i class="fa fa-check-square"></i>Reconfirm</a>
+                                    <a class="btn btn-default btn-sm" href="#" onclick="fwLink(10310201, @bookingInfo.Id, @ActionPermission.ABookingCancel);"><i class="fa fa-ban"></i>Cancel</a>
+                                }
+                                else if (bookingInfo.BookingStatus == BookingStatus.Confirmed)
+                                {
+                                    <a class="btn btn-default btn-sm" href="#" onclick="fwLink(10310201, @bookingInfo.Id, @ActionPermission.ABookingReConfirm);"><i class="fa fa-check-square"></i>Reconfirm</a>
+                                    <a class="btn btn-default btn-sm" href="#" onclick="fwLink(10310201, @bookingInfo.Id, @ActionPermission.ABookingCancel);"><i class="fa fa-ban"></i>Cancel</a>
+                                }
+                                <a class="btn btn-default btn-sm" href="#" onclick="fwLink(10310201, @bookingInfo.Id, @ActionPermission.ABookingPrint);"><i class="fa fa-print"></i>Print</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,157 @@
+﻿@using System.Xml.Linq;
+
+@{
+    int perPages = 15;
+    int maxPages = 8;
+
+    int pagesCount = (int)Math.Ceiling(Prog.Terminal.BasicBooking.FilteredHotels.Count / (decimal)perPages);
+    if (pagesCount > maxPages)
+    {
+        pagesCount = maxPages;
+    }
+
+    int selectedPage = 0;
+    int skip = 0;
+    if (Prog.Terminal.RequestCache.pageIndex > 0)
+    {
+        selectedPage = Prog.Terminal.RequestCache.pageIndex;
+    }
+    skip = selectedPage * perPages;
+    int re = 0;
+
+    try
+    {
+        if (Prog.Terminal.BasicBooking.FilteredHotels.Count > 0)
+        {
+            foreach (Hotel hotel in Prog.Terminal.BasicBooking.FilteredHotels.Skip(skip).Take(perPages))
+            {
+                try
+                {
+                    re = re + 1;
+                    <li>
+                        <div class="booking-item" @*onclick="fwLink(104103, '@hotel.Code')"*@>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="booking-item-img-wrap">
+                                        <img src="http://photos.hotelbeds.com/giata/@hotel.DefaultImage" alt="Image Alternative text" title="LHOTEL PORTO BAY SAO PAULO suite lhotel living room" onerror="this.src='../img/broken.jpg'" style="height: 210px; max-height: 210px;" />
+                                        <div class="booking-item-img-num"><i class="fa fa-picture-o"></i>@hotel.Images.Count</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="booking-item-rating">
+                                        <ul class="icon-group booking-item-rating-stars">
+                                            @for (int i = 0; i < hotel.Stars; i++)
+                                            {
+                                                <li>
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                            }
+                                            @for (int j = hotel.Stars; j < 5; j++)
+                                            {
+                                                <li>
+                                                    <i class="fa fa-star-o"></i>
+                                                </li>
+                                            }
+                                            @*<li>
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-star-o"></i>
+                                                </li>*@
+                                        </ul><span class="booking-item-rating-number"><b>@hotel.Stars</b> of 5</span><small>(@*@hotel.ReviewsCount reviews*@)</small>
+                                        @*@if (!string.IsNullOrEmpty(hotel.TARatingImage))
+                                            {
+                                                <img style="width: 118px; height: 20px; margin-left: 10px" src="@hotel.TARatingImage" />
+                                            }*@
+                                        <div class="gap-small"></div>
+                                        <h4 class="booking-item-title">@hotel.Name</h4>
+                                        <div class="gap-small"></div>
+                                        <input type="hidden" value="" />
+                                        @if (!hotel.HasSoldOut)
+                                        {
+                                            <p class="booking-item-address"><strong>@hotel.LowestRate.Room.Name</strong></p>
+                                            <p class="booking-item-address"><i class="im im-kitchen"></i>   <strong style="color: green;">@hotel.LowestRate.BoardName</strong></p>
+                                            <p class="booking-item-address"><i class="fa fa-map-marker"></i>   <strong>@hotel.Address</strong></p>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="booking-item-rating">
+                                        @if (hotel.HasRates)
+                                        {
+                                            Rate lowestRate = hotel.LowestRate;
+                                            <div>
+                                                @if (lowestRate.HasOffers)
+                                                {
+                                                    <div style="margin-bottom: 10px;">
+                                                        <span class="booking-item-price" style="color: red; font-size: medium;"><strike>$@lowestRate.CancelledNet</strike></span>
+                                                        <span class="booking-item-price" style="color: green;">$@lowestRate.LastNet</span>
+                                                        <span style="color: blue;">@MvcHtmlString.Create(lowestRate.FormattedHtmlOffers)</span>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <span class="booking-item-price">$@lowestRate.LastNet</span><span>/night</span>
+                                                }
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            @*<h4 class="text-center" style="color: red"><strong>Sold-Out</strong></h4>*@
+                                            <div><img src="../img/loading_1.gif" style="width: 64px;height: auto;" class="center-block" /></div>
+                                        }
+                                        @*<span class="booking-item-price-from">from</span><span class="booking-item-price">$@hotel.LowestRate.Net</span><span>/night</span>*@
+                                        <div>
+                                            <a class="btn btn-primary" style="width: 70%; margin: 15px" onclick="fwLink(104103, '@hotel.Code')">Book Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+                catch (Exception ex) { Misc.Log(ex.GetBaseException().ToString()); }
+            }
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        <small>
+                            @string.Format($"hotels found in {Prog.Terminal.BasicBooking.City}") &nbsp;&nbsp;Showing @re - @Prog.Terminal.BasicBooking.FilteredHotels.Count
+                        </small>
+                    </p>
+                    <ul class="pagination">
+                        @for (int i = 0; i < pagesCount; i++)
+                        {
+                            <li class="@(selectedPage == i ? "active" : "")">
+                                <a href="#" onclick="fwLink(10410201, null, @i)">@(i + 1)</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p>
+                        Not what you're looking for? <a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Try your search again</a>
+                    </p>
+                </div>
+            </div>
+        }
+        else
+        {
+            <h4>@Misc.NoResults</h4>
+        }
+    }
+    catch (Exception ex)
+    {
+        Misc.Log(ex.GetBaseException().ToString());
+        <h4> There are no items to show.</h4>
+    }
+}

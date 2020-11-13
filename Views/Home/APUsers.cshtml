@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "~/Views/Shared/_CPanel.cshtml";
+}
+
+<h4>SubUsers</h4>
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-search input-icon input-icon-hightlight"></i>
+            <label>Search</label>
+            <input class="form-control" placeholder="type to search..." type="text" id="txtSearch" />
+        </div>
+    </div>
+</div>
+@if (Prog.Terminal.User.Company.SubUsers.Count == 0)
+{
+    <div class="gap"></div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <label>There is no user to display.</label>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <div class="gap"></div>
+}
+else
+{
+    <table class="table table-bordered table-striped table-booking-history">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Position</th>
+                <th>Creation Date</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (User user in Prog.Terminal.User.Company.SubUsers)
+                {
+                    <tr>
+                        <td class="booking-history-type">
+                            <i class="fa fa-user"></i>
+                        </td>
+                        <td><a href="#" onclick="fwLink(10310401, @user.Id)">@user.FullName</a></td>
+                        <td>@user.Email</td>
+                        <td>@user.Position</td>
+                        <td>@user.CreationDate.ToLongDateString()</td>
+                        <td class="text-center">
+                            @if (user.IsActive)
+                            {
+                                <i class="fa fa-check"></i>
+                            }
+                        </td>
+                        @*<td class="text-center">
+                                <a class="btn btn-default btn-sm" href="#">Cancel</a>
+                            </td>*@
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+                }
+<div class="gap-small"></div>
+<span class="pull-right"><p>Click the following link <a href="#" onclick="fwLink(103103)">Add user</a> to add a new user.</p></span>

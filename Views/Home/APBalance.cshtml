@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_CPanel.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h4>Balance Details</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group form-group-icon-left">
+                    <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                    <label>From:</label>
+                    <input class="date-pick form-control" data-date-format="dd/mm/yyyy" type="text" id="dtFrom" value="@DateTime.Now.ToString("dd/MM/yyyy")" />
+                </div>
+                <a class="btn btn-primary">Search</a>
+                <span class="pull-right"><i class="fa fa-print"></i> Print</span>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group form-group-icon-left">
+                    <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                    <label>To:</label>
+                    <input class="date-pick form-control" data-date-format="dd/mm/yyyy" type="text" id="dtTo" value="@DateTime.Now.AddMonths(10).ToString("dd/MM/yyyy")" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="booking-item-deails-date-location">
+            <ul>
+                <li>
+                    <p>Outstanding: <span class="pull-right">$@Prog.Terminal.User.Company.ActualBalanceInfo</span></p>
+                    <p>Reconfirmed: <span class="pull-right">$@Prog.Terminal.User.Company.SumOfReConfirmed</span></p>
+                    <p>Credit Limit: <span class="pull-right">$0</span></p>
+                    <p>Under Confirmation: <span class="pull-right">$@Prog.Terminal.User.Company.SumOfPendingOrConfirmed</span></p>
+                    <p>Available: <span class="pull-right">$@Prog.Terminal.User.Company.ReservedBalance</span></p>
+                </li>
+            </ul>
+        </div>
+        <div class="gap gap-mini"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped table-booking-history">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Order Date</th>
+                    <th>Execution Date</th>
+                    <th>Cost</th>
+                    <th>Current</th>
+                    <th>Cancel</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

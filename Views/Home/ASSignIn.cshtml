@@ -1,0 +1,209 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html class="full">
+<head>
+    @Html.Partial("parCssFiles")
+</head>
+<body class="full" ng-app="MSite" ng-controller="MSiteController">
+    <!-- FACEBOOK WIDGET -->
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- /FACEBOOK WIDGET -->
+    <div class="global-wrap">
+        <div class="full-page" id="divMain">
+            <div class="bg-holder full">
+                <div class="bg-mask"></div>
+                <div class="bg-img" style="background-image:url('../img/@Prog.Settings.SignInBackground');"></div>
+                <div class="bg-holder-content full text-white">
+                    <a class="logo-holder" href="/">
+                        <img src="../img/@Prog.Settings.Logo" alt="" title="" />
+                    </a>
+                    <div class="full-center">
+                        <div class="container">
+                            <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="mfpMsgWrong"><h4>Info</h4><h5>Incorrect email address or password, please try again.</h5></div>
+                            <div class="row row-wrap" data-gutter="60">
+                                <div class="col-md-4">
+                                    <div class="visible-lg">
+                                        <h3 class="mb15">ALTI Group</h3>
+                                        @*<h3 class="mb15">@Prog.Current.LoginTime</h3>
+                                            <h3 class="mb15">@Prog.CurrentUser.LoginTime</h3>
+                                            <h3 class="mb15">@Prog.CurrentUser.CurrentBooking.CreationTime</h3>*@
+                                        <p>Our team are looking forward to welcoming you & your esteemed guests, ALTI Group providing a wide range of travel experiences and services in conjunction with local partners in different destinations to be sure and certain that our services will always fascinate your clients with unforgettable memories & affordable costs.</p>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h3 class="mb15">Login</h3>
+                                    <form autocomplete="off">
+                                        <div class="form-group form-group-ghost form-group-icon-left">
+                                            <i class="fa fa-user input-icon input-icon-show"></i>
+                                            <label>Username or email</label>
+                                            <input class="form-control" placeholder="e.g. someone@example.com" type="text" id="txtUserName" tabindex="1" />
+                                        </div>
+                                        <div class="form-group form-group-ghost form-group-icon-left">
+                                            <i class="fa fa-lock input-icon input-icon-show"></i>
+                                            <label>Password</label>
+                                            <input class="form-control" type="password" placeholder="your password" id="txtPassword" tabindex="2" onkeyup="doClick(event, 10210101)" />
+                                        </div>
+                                        <a class="btn btn-primary" href="#" onclick="fwLink(10210101)" tabindex="3">Sign in</a>
+                                        <div style="margin-top: 15px;"><a href="#" onclick="fwLink(102104)" tabindex="4"><i class="fa fa-user"></i> Register new user</a></div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4 hidden">
+                                    <div class="hidden">
+                                        <h3 class="mb15">New To Traveler?</h3>
+                                        <form>
+                                            <div class="form-group form-group-ghost form-group-icon-left">
+                                                <i class="fa fa-user input-icon input-icon-show"></i>
+                                                <label>Full Name</label>
+                                                <input class="form-control" placeholder="e.g. John Doe" type="text" />
+                                            </div>
+                                            <div class="form-group form-group-ghost form-group-icon-left">
+                                                <i class="fa fa-envelope input-icon input-icon-show"></i>
+                                                <label>Emai</label>
+                                                <input class="form-control" placeholder="e.g. johndoe@gmail.com" type="text" />
+                                            </div>
+                                            <div class="form-group form-group-ghost form-group-icon-left">
+                                                <i class="fa fa-lock input-icon input-icon-show"></i>
+                                                <label>Password</label>
+                                                <input class="form-control" type="password" placeholder="my secret password" />
+                                            </div>
+                                            <input class="btn btn-primary" type="submit" value="Sign up for Traveler" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="/Home/IPAbout">About Us</a>
+                        </li>
+                        <li>
+                            <a href="/Home/IPObjectives">Objectives</a>
+                        </li>
+                        <li>
+                            <a href="/Home/IPMission">Mission</a>
+                        </li>
+                        <li>
+                            <a href="/Home/IPKeysToSuccess">Keys tO Success</a>
+                        </li>
+                        <li>
+                            <a href="/Home/IPContact">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer id="main-footer" class="hidden">
+            <div class="container">
+                <div class="row row-wrap">
+                    <div class="col-md-3">
+                        <a class="logo" href="index.html">
+                            <img src="~/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
+                        </a>
+                        <p class="mb20">Booking, reviews and advices on hotels, resorts, flights, vacation rentals, travel packages, and lots more!</p>
+                        <ul class="list list-horizontal list-space">
+                            <li>
+                                <a class="fa fa-facebook box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-twitter box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-google-plus box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-linkedin box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-pinterest box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Newsletter</h4>
+                        <form>
+                            <label>Enter your E-mail Address</label>
+                            <input type="text" class="form-control">
+                            <p class="mt5">
+                                <small>*We Never Send Spam</small>
+                            </p>
+                            <input type="submit" class="btn btn-primary" value="Subscribe">
+                        </form>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list list-footer">
+                            <li>
+                                <a href="#">About US</a>
+                            </li>
+                            <li>
+                                <a href="#">Press Centre</a>
+                            </li>
+                            <li>
+                                <a href="#">Best Price Guarantee</a>
+                            </li>
+                            <li>
+                                <a href="#">Travel News</a>
+                            </li>
+                            <li>
+                                <a href="#">Jobs</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#">Terms of Use</a>
+                            </li>
+                            <li>
+                                <a href="#">Feedback</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Have Questions?</h4>
+                        <h4 class="text-color">+1-202-555-0173</h4>
+                        <h4><a href="#" class="text-color">support@altitravel.com</a></h4>
+                        <p>24/7 Dedicated Customer Support</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="full-page hidden" id="divLoading">
+            <div class="bg-holder full">
+                <div class="bg-mask"></div>
+                <div class="bg-img" style="background-image:url(../img/upper_lake_in_new_york_central_park_1024x487.jpg);"></div>
+                <div class="bg-holder-content full text-white text-center">
+                    <a class="logo-holder" href="index.html">
+                        <img src="../img/logo-white.png" alt="Image Alternative text" title="Image Title" />
+                    </a>
+                    <div class="full-center">
+                        <div class="container">
+                            <div class="spinner-clock">
+                                <div class="spinner-clock-hour"></div>
+                                <div class="spinner-clock-minute"></div>
+                            </div>
+                            <h2 class="mb5">Looking for hotels in New York City...</h2>
+                            <p class="text-bigger">it will take a couple of seconds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.Partial("parJsFiles")
+    </div>
+</body>
+</html>

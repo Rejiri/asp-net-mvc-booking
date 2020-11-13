@@ -1,0 +1,92 @@
+﻿@{
+    Layout = "~/Views/Shared/_CPanel.cshtml";
+    bool insertMode = Prog.Terminal.SubUserEditMode == null;
+}
+
+<h4>Add new user</h4>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-user input-icon input-icon-show"></i>
+            <label>First Name</label>
+            <input class="form-control" placeholder="ex: john" type="text" id="txtFirstName" value="@(insertMode ? "" : Prog.Terminal.SubUserEditMode.FirstName)" tabindex="1" />
+        </div>
+        <div class="form-group">
+            <label>Position</label>
+            <input class="form-control" placeholder="ex: sales manager" type="text" id="txtPosition" value="@(insertMode ? "" : Prog.Terminal.SubUserEditMode.Position)" tabindex="4" />
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-user input-icon input-icon-show"></i>
+            <label>Last Name</label>
+            <input class="form-control" placeholder="ex: smith" type="text" id="txtLastName" value="@(insertMode ? "" : Prog.Terminal.SubUserEditMode.LastName)" tabindex="2" />
+        </div>
+        <div>
+            <label>Activation</label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input class="i-check" type="checkbox" id="chkActive" @(insertMode ? "" : (Prog.Terminal.SubUserEditMode.IsActive ? "checked" : "")) tabindex="5" /> Active
+            </label>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group form-group-icon-left">
+            <i class="fa fa-envelope input-icon input-icon-show"></i>
+            <label>Email</label>
+            <input class="form-control" placeholder="someone@example.com" type="text" id="txtEmail" value="@(insertMode ? "" : Prog.Terminal.SubUserEditMode.Email)" tabindex="3" />
+        </div>
+    </div>
+</div>
+<div class="gap-small"></div>
+<h4>Permissions</h4>
+<div class="row">
+    <div class="col-md-4">
+        <div class="checkbox">
+            <label>
+                <input class="i-check iPer" type="checkbox" value="@ActionPermission.PBookingView" tabindex="6" @(Prog.Terminal.SubUserEditMode.HasPermission(ActionPermission.PBookingView) ? "checked" : "") /> View Bookings
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input class="i-check iPer" type="checkbox" value="@ActionPermission.PBookingConfirm" tabindex="7" @(Prog.Terminal.SubUserEditMode.HasPermission(ActionPermission.PBookingConfirm) ? "checked" : "") /> Confirm
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input class="i-check iPer" type="checkbox" value="@ActionPermission.PBookingReConfirm" tabindex="8" @(Prog.Terminal.SubUserEditMode.HasPermission(ActionPermission.PBookingReConfirm) ? "checked" : "") /> Reconfirm
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input class="i-check iPer" type="checkbox" value="@ActionPermission.PBookingCancel" tabindex="9" @(Prog.Terminal.SubUserEditMode.HasPermission(ActionPermission.PBookingCancel) ? "checked" : "") /> Cancel
+            </label>
+        </div>
+        <div class="gap-small"></div>
+        <a class="btn btn-primary btn-lg" onclick="fwLink(103101)" tabindex="14">@(insertMode ? "Add" : "Update")</a>
+        <div class="gap"></div>
+    </div>
+    <div class="col-md-4">
+        <div class="checkbox">
+            <label>
+                <input class="i-check iPer" type="checkbox" value="@ActionPermission.PAccountingViewStatement" tabindex="10" @(Prog.Terminal.SubUserEditMode.HasPermission(ActionPermission.PAccountingViewStatement) ? "checked" : "") /> View Statement of account
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input class="i-check iPer" type="checkbox" value="@ActionPermission.PAccountingViewBalance" tabindex="11" @(Prog.Terminal.SubUserEditMode.HasPermission(ActionPermission.PAccountingViewBalance) ? "checked" : "") /> View Balance details
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input class="i-check iPer" type="checkbox" value="@ActionPermission.PMiscAddSubuser" tabindex="12" @(Prog.Terminal.SubUserEditMode.HasPermission(ActionPermission.PMiscAddSubuser) ? "checked" : "") /> Add Subuser
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input class="i-check iPer" type="checkbox" value="@ActionPermission.PMiscEditSubuser" tabindex="13" @(Prog.Terminal.SubUserEditMode.HasPermission(ActionPermission.PMiscEditSubuser) ? "checked" : "") /> Edit Subuser
+            </label>
+        </div>
+    </div>
+</div>
